@@ -1,6 +1,5 @@
 """Test the linked_list implementation."""
 import pytest
-import random
 from linked_list import LinkedList
 
 PARAMS_TABLE = [
@@ -87,3 +86,27 @@ def test_pop_empty_raises_index_error():
 def test_can_get_length_of_list(num_list):
     new_list = LinkedList(num_list)
     assert len(new_list) == len(num_list)
+
+
+def test_search_for_value():
+    new_list = LinkedList([1, 2, 3, 4, 5])
+    searched_node = new_list.head.next_node.next_node.next_node
+    assert new_list.search(2) == searched_node
+
+
+def test_search_for_value_error():
+    new_list = LinkedList([1, 2, 3, 4, 5])
+    assert new_list.search(6) is None
+
+
+def test_remove_value():
+    new_list = LinkedList([1, 2, 3, 4, 5])
+    assert len(new_list.remove(3)) == 4
+    assert new_list.head.next_node.val == 4
+    assert new_list.head.next_node.next_node.val == 2
+
+
+def test_remove_value_error():
+    new_list = LinkedList([1, 2, 3, 4, 5])
+    with pytest.raises(ValueError):
+        new_list.remove(6)

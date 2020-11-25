@@ -57,18 +57,3 @@ class LinkedList:
 
     def display(self):
         return f"({self.head.val})->{self.head.next_node}"
-
-
-# test = LinkedList()
-# test.push(37)
-# print(test)
-# test.push(99)
-# print(test)
-# test.push(12)
-# print(test)
-#
-# breakpoint()
-
-# a = LinkedList()  # a = () --> None
-# a.push(37)  # a = (37) --> None
-# a.push(99)  # a = (99) --> (37) --> None
