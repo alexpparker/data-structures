@@ -36,13 +36,24 @@ class LinkedList:
         return popped_value
 
     def size(self):
-        pass
+        return self._length
 
     def search(self, val):
-        pass
+        current_node = self.head
+        while current_node.val != val:
+            current_node = current_node.next_node
+            if current_node is None:
+                break
+        return current_node
 
-    def remove(self, node):
-        pass
+    def remove(self, val):
+        node = self.search(val)
+        if node is None:
+            raise ValueError("Value does not exist in list.")
+        node.val = node.next_node.val
+        node.next_node = node.next_node.next_node
+        self._length -= 1
+        return self
 
     def display(self):
         return f"({self.head.val})->{self.head.next_node}"
