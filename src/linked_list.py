@@ -1,5 +1,10 @@
+"""Singly linked list"""
+from typing import Any, Optional, Iterable
+
+
 class Node:
-    def __init__(self, val, next_node):
+    """Node class for the linked list"""
+    def __init__(self, val: Any, next_node: "Node"):
         self.val = val
         self.next_node = next_node
 
@@ -8,14 +13,15 @@ class Node:
 
 
 class LinkedList:
-    def __init__(self, iterable=None):
+    """Linked list class"""
+    def __init__(self, iterable: Optional[Iterable] = None):
         self.head = None
         self._length = 0
-        if type(iterable) in [list, tuple, str]:
+        if isinstance(iterable, (list, tuple, str)):
             for item in iterable:
                 self.push(item)
         elif iterable is not None:
-            raise TypeError("An iterable must be provided.")
+            raise TypeError("If providing an input, it must be an iterable.")
 
     def __len__(self):
         return self._length
