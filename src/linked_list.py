@@ -62,4 +62,6 @@ class LinkedList:
         return self
 
     def display(self):
+        if self.head is None:
+            return f"Your Linked List is empty."
         return f"({self.head.val})->{self.head.next_node}"
