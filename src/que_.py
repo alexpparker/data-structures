@@ -66,4 +66,6 @@ class Queue:
         return output
 
     def peek(self):
+        if self.length == 0:
+            raise IndexError("Your queue is empty - nothing to dequeue here!")
         return self.front.val
